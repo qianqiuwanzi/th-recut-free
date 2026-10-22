@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "apiKey": {
+      "type": "string",
+      "title": "API Key",
+      "description": "Your qianshi.cool th-recut platform API key. Enter it exactly as: Bearer <your-key>",
+      "x-from": { "header": "th-recut-api-key" },
+      "x-to": { "header": "Authorization" }
+    }
+  },
+  "required": ["apiKey"]
+}

@@ -1,0 +1,65 @@
+{
+  "serverInfo": {
+    "name": "Talking-Head Recut",
+    "version": "1.0.0"
+  },
+  "authentication": {
+    "required": true,
+    "schemes": ["oauth2"]
+  },
+  "tools": [
+    {
+      "name": "generate_recut_plan",
+      "description": "根据口播视频元信息与文案，生成出片计划（人脸禁区安全布局 / MG 卡片反选 / BGM 情绪匹配），不渲染。",
+      "inputSchema": {
+        "type": "object",
+        "required": ["copy", "video"],
+        "properties": {
+          "copy": { "type": "string", "description": "口播文案（纯文本或结构化章节）" },
+          "video": {
+            "type": "object",
+            "description": "视频元信息",
+            "required": ["width", "height"],
+            "properties": {
+              "width": { "type": "integer" },
+              "height": { "type": "integer" },
+              "durationSec": { "type": "number" },
+              "rotation": { "type": "integer" }
+            }
+          },
+          "zones": { "type": "object", "description": "可选，客户端人脸禁区探测结果 {available_bands:[{id,x,y,w,h}]}" },
+          "slug": { "type": "string" },
+          "theme": { "type": "string", "default": "apple-keynote" }
+        }
+      }
+    },
+    {
+      "name": "render_recut_video",
+      "description": "提交渲染任务，返回 job_id；用 get_recut_job 轮询成片。",
+      "inputSchema": {
+        "type": "object",
+        "required": ["media_url"],
+        "properties": {
+          "media_url": { "type": "string", "description": "口播视频素材的公开可下载地址" },
+          "copy": { "type": "string" },
+          "video": { "type": "object" },
+          "plan": { "type": "object", "description": "可直接传 generate_recut_plan 的结果，跳过重新生成" },
+          "slug": { "type": "string" }
+        }
+      }
+    },
+    {
+      "name": "get_recut_job",
+      "description": "查询渲染任务状态与成片 URL。",
+      "inputSchema": {
+        "type": "object",
+        "required": ["job_id"],
+        "properties": {
+          "job_id": { "type": "string" }
+        }
+      }
+    }
+  ],
+  "resources": [],
+  "prompts": []
+}
