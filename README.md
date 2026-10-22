@@ -74,6 +74,32 @@ python scripts/split_sentences.py --tokens tokens.json --out seg.json # 智能�
 > 想直接出片、不想自己搭渲染环境？去 **SkillHub 搜 `talking-video-autocutting`**，
 > 前 3 条完整出片免费、不水印。
 
+## 云端 MCP（给开发者 / 智能体）
+
+除了在 SkillHub 对话里用，云端出片能力也开放为标准 **MCP（Model Context Protocol）** 服务，
+任何支持自定义 MCP 的客户端（Claude Code / Cursor / Cline / Glama 等）都能直接调用：
+
+- **端点**：`https://www.qianshi.cool/thapi/mcp`（Streamable HTTP + JSON-RPC 2.0）
+- **鉴权**：`Authorization: Bearer <平台颁发的 API Key>`
+- **3 个工具**：`generate_recut_plan`（生成安全排版出片计划）→ `render_recut_video`（提交渲染）
+  → `get_recut_job`（轮询拿成片）
+
+连接示例（Claude Code / Cursor 的 `.mcp.json`）：
+
+```json
+{
+  "mcpServers": {
+    "th-recut": {
+      "type": "http",
+      "url": "https://www.qianshi.cool/thapi/mcp",
+      "headers": { "Authorization": "Bearer ${TH_RECUT_API_KEY}" }
+    }
+  }
+}
+```
+
+> MCP 接入需平台颁发的 API Key（按次计费，前 3 条免费），与 SkillHub 付费链路同源。
+
 ## FAQ
 
 **Q：视频会上传吗？**

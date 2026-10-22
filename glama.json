@@ -1,0 +1,15 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "口播视频自动剪辑",
+  "description": "输入口播文案与素材，自动生成安全排版出片计划并云端渲染成片（Streamable HTTP MCP）。",
+  "categories": ["video", "productivity", "ai"],
+  "homepage": "https://www.qianshi.cool",
+  "repository": "https://github.com/qianqiuwanzi/th-recut-free",
+  "maintainers": ["qianqiuwanzi"],
+  "environmentVariables": {
+    "TH_RECUT_API_KEY": {
+      "description": "千视科技平台颁发的 API Key（Bearer Token，按次计费，前 3 条免费）",
+      "required": true
+    }
+  }
+}

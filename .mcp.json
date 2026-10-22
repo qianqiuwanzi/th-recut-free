@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "th-recut": {
+      "type": "http",
+      "url": "https://www.qianshi.cool/thapi/mcp",
+      "headers": {
+        "Authorization": "Bearer ${TH_RECUT_API_KEY}"
+      }
+    }
+  }
+}
