@@ -1,0 +1,4 @@
+# th-recut-free 可选依赖（均为纯本地计算库，无网络请求）
+numpy>=1.20
+opencv-python-headless>=4.5
+jieba>=0.42
