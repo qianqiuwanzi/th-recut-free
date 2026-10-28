@@ -19,9 +19,11 @@ if [ -z "$WHO" ]; then
 fi
 echo "    已登录：$WHO"
 
-# 命名空间：优先环境变量，其次 whoami 中的 @handle，兜底 qianqiuwanzi
-NS="${SMITHERY_NS:-qianqiuwanzi}"
-DET=$(printf '%s' "$WHO" | grep -oE '@[A-Za-z0-9_-]+' | head -1 | tr -d '@' || true)
+# 命名空间：优先环境变量，其次 whoami 输出的 Namespace 行，兜底 105920869
+# ⚠️ 2026-10-28 实测：`smithery auth whoami` 输出的是 "Namespace: 105920869"（不是 @handle），
+#    旧脚本用 grep '@[A-Za-z0-9_-]+' 永远匹配不到 → 会错误回落到 qianqiuwanzi。
+NS="${SMITHERY_NS:-105920869}"
+DET=$(printf '%s' "$WHO" | grep -oE 'Namespace:[[:space:]]*[A-Za-z0-9_-]+' | head -1 | sed 's/Namespace:[[:space:]]*//' || true)
 [ -n "$DET" ] && NS="$DET"
 echo "    命名空间：@$NS"
 
