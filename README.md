@@ -9,14 +9,14 @@
 > 你录完口播视频，最烦的是不是：脸跑到画面边缘、字幕断句怪、卡片挡脸、音画不同步？
 > 这个开源工具帮你在**本地**把这些坑一次性查出来——视频素材不出本机，永久免费。
 
-**👉 不想自己搭渲染环境？直接[云端出片](https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting)（前 3 条免费、不水印）** ｜
+**👉 不想自己搭渲染环境？直接[云端出片](https://www.qianshi.cool/skillpay/go?src=github&to=skillhub)（前 3 条免费、不水印）** ｜
 **在线体验页** → <https://qianqiuwanzi.github.io/th-recut-free/>
 
 | 我想… | 点这里 |
 |---|---|
 | 先看看效果、别装环境 | [线上体验页](https://qianqiuwanzi.github.io/th-recut-free/) |
 | 下载离线跑 | [Releases v1.0.0](https://github.com/qianqiuwanzi/th-recut-free/releases/tag/v1.0.0) |
-| 直接出片（不想自搭渲染） | [SkillHub · 前 3 条免费](https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting) |
+| 直接出片（不想自搭渲染） | [SkillHub · 前 3 条免费](https://www.qianshi.cool/skillpay/go?src=github&to=skillhub) |
 | 接进 Claude Code / Cursor | [MCP 端点](#mcp)（见下方配置） |
 | 商用 / 企业批量 | [联系我们](#联系) |
 
@@ -93,12 +93,12 @@ python scripts/split_sentences.py --tokens tokens.json --out seg.json # 智能�
 ### 👉 一键直达云端出片
 
 <p align="center">
-  <a href="https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting">
+  <a href="https://www.qianshi.cool/skillpay/go?src=github&to=skillhub">
     <img src="https://img.shields.io/badge/%E2%9C%85%20%E7%9B%B4%E6%8E%A5%E5%87%BA%E7%89%87-skillhub.cn-4F7DFC?style=for-the-badge" alt="直达云端出片">
   </a>
 </p>
 
-**云端出片（Pay Skill）** → <https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting>
+**云端出片（Pay Skill）** → <https://www.qianshi.cool/skillpay/go?src=github&to=skillhub>
 
 - 装上就能用：SkillHub 上「口播视频自动剪辑」，评分 4.6，创作者为**千视科技（深圳）有限公司**
 - **前 3 条完整出片免费、不水印**；超出 **¥2.90/条**（微信支付，费用直接付给创作者）
@@ -144,12 +144,12 @@ python scripts/split_sentences.py --tokens tokens.json --out seg.json # 智能�
 
 **Q：能直接帮我剪好/出片吗？**
 本仓库只做"体检"和"预览"。要成片，点这里直接用云端出片：
-<https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting>（前 3 条免费），
+<https://www.qianshi.cool/skillpay/go?src=github&to=skillhub>（前 3 条免费），
 或自备剪辑工具按体检报告手工处理。
 
 **Q：可以商用吗？**
 本仓库以 CC BY-NC 4.0 发布，禁止商用。商用请走云端出片付费链路
-（<https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting>）或联系作者
+（<https://www.qianshi.cool/skillpay/go?src=github&to=skillhub>）或联系作者
 （105920869@qq.com / 千视科技（深圳）有限公司）。
 
 ## 联系
@@ -157,7 +157,7 @@ python scripts/split_sentences.py --tokens tokens.json --out seg.json # 智能�
 | 场景 | 渠道 |
 |---|---|
 | 个人使用 / 试用 | 直接用，无需联系 |
-| 商用 / 批量出片 | [SkillHub 云端出片](https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting)（¥2.90/条，前 3 条免费） |
+| 商用 / 批量出片 | [SkillHub 云端出片](https://www.qianshi.cool/skillpay/go?src=github&to=skillhub)（¥2.90/条，前 3 条免费） |
 | 企业定制 / 私有部署 / 批量授权 | 105920869@qq.com（千视科技（深圳）有限公司） |
 | 功能建议 / 报错 | [开 Issue](https://github.com/qianqiuwanzi/th-recut-free/issues/new) |
 
