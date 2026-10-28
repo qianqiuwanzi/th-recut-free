@@ -12,6 +12,16 @@
 **👉 不想自己搭渲染环境？直接[云端出片](https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting)（前 3 条免费、不水印）** ｜
 **在线体验页** → <https://qianqiuwanzi.github.io/th-recut-free/>
 
+| 我想… | 点这里 |
+|---|---|
+| 先看看效果、别装环境 | [线上体验页](https://qianqiuwanzi.github.io/th-recut-free/) |
+| 下载离线跑 | [Releases v1.0.0](https://github.com/qianqiuwanzi/th-recut-free/releases/tag/v1.0.0) |
+| 直接出片（不想自搭渲染） | [SkillHub · 前 3 条免费](https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting) |
+| 接进 Claude Code / Cursor | [MCP 端点](#mcp)（见下方配置） |
+| 商用 / 企业批量 | [联系我们](#联系) |
+
+> ⭐ 如果这套体检脚本帮你省了时间，给个 star——它会让我知道该往哪加功能。
+
 ## 它解决什么
 
 口播视频的"排版包装"里，最重复、最吃人力的不是"剪"，是**排版前的质检**：
@@ -141,6 +151,15 @@ python scripts/split_sentences.py --tokens tokens.json --out seg.json # 智能�
 本仓库以 CC BY-NC 4.0 发布，禁止商用。商用请走云端出片付费链路
 （<https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting>）或联系作者
 （105920869@qq.com / 千视科技（深圳）有限公司）。
+
+## 联系
+
+| 场景 | 渠道 |
+|---|---|
+| 个人使用 / 试用 | 直接用，无需联系 |
+| 商用 / 批量出片 | [SkillHub 云端出片](https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting)（¥2.90/条，前 3 条免费） |
+| 企业定制 / 私有部署 / 批量授权 | 105920869@qq.com（千视科技（深圳）有限公司） |
+| 功能建议 / 报错 | [开 Issue](https://github.com/qianqiuwanzi/th-recut-free/issues/new) |
 
 ## 合规与边界
 
