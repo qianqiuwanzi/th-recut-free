@@ -65,14 +65,28 @@ python scripts/split_sentences.py --tokens tokens.json --out seg.json # 智能�
 
 ## 免费 vs 付费
 
-| | 本地体检（本仓库，免费） | 云端出片（SkillHub `talking-video-autocutting`） |
+| | 本地体检（本仓库，免费） | 云端出片（SkillHub Pay Skill） |
 |---|---|---|
 | 人脸禁区 / 断句 / 构图 / 音画 | ✅ 查出来 | ✅ 查出来并自动避让布点 |
 | 产出"编辑剧本" | ✅ 预览 | ✅ 预览 + 渲染成片 |
-| 出片渲染 | ❌ 需自备剪辑工具 | ✅ 前 3 条免费，之后按次 |
+| 出片渲染 | ❌ 需自备剪辑工具 | ✅ 前 3 条免费，之后 ¥2.90/条 |
 
-> 想直接出片、不想自己搭渲染环境？去 **SkillHub 搜 `talking-video-autocutting`**，
-> 前 3 条完整出片免费、不水印。
+### 👉 一键直达云端出片
+
+<p align="center">
+  <a href="https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting">
+    <img src="https://img.shields.io/badge/%E2%9C%85%20%E7%9B%B4%E6%8E%A5%E5%87%BA%E7%89%87-skillhub.cn-4F7DFC?style=for-the-badge" alt="直达云端出片">
+  </a>
+</p>
+
+**云端出片（Pay Skill）** → <https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting>
+
+- 装上就能用：SkillHub 上「口播视频自动剪辑」，评分 4.6，创作者为**千视科技（深圳）有限公司**
+- **前 3 条完整出片免费、不水印**；超出 **¥2.90/条**（微信支付，费用直接付给创作者）
+- 和本仓库的关系：本仓库是**免费的本地体检层**，云端是**渲染层**。体检结果直接喂给云端出片，不用重跑
+- 不想装 SkillHub？用下面的 **MCP 端点**直接接进 Claude Code / Cursor / Cline
+
+> 两条付费入口同源（同一个收款主体、同一个计费口径），额度也共享。
 
 ## 云端 MCP（给开发者 / 智能体）
 
@@ -110,11 +124,14 @@ python scripts/split_sentences.py --tokens tokens.json --out seg.json # 智能�
 装了功能完整，不装则相关脚本不可用，其余脚本照常。
 
 **Q：能直接帮我剪好/出片吗？**
-本仓库只做"体检"和"预览"。要成片，可用 SkillHub 上的
-`talking-video-autocutting`（前 3 条免费），或自备剪辑工具按体检报告手工处理。
+本仓库只做"体检"和"预览"。要成片，点这里直接用云端出片：
+<https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting>（前 3 条免费），
+或自备剪辑工具按体检报告手工处理。
 
 **Q：可以商用吗？**
-本仓库以 CC BY-NC 4.0 发布，禁止商用。商用请走 SkillHub 付费链路或联系作者。
+本仓库以 CC BY-NC 4.0 发布，禁止商用。商用请走云端出片付费链路
+（<https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting>）或联系作者
+（105920869@qq.com / 千视科技（深圳）有限公司）。
 
 ## 合规与边界
 

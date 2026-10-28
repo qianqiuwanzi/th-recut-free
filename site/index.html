@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>口播视频自动剪辑 · 本地免费体检 / 云端一键出片</title>
+<meta name="description" content="口播视频排版质检：人脸禁区探测、智能断句、音频与构图验收，纯本地 ffmpeg+Python，视频不出本机，永久免费。想直接出片，云端前 3 条免费。">
+<meta property="og:title" content="口播视频自动剪辑 · 本地免费体检 / 云端一键出片">
+<meta property="og:description" content="人脸禁区探测 / 智能断句 / 音频与构图验收，纯本地运行，视频不出本机。前 3 条云端出片免费。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+<style>
+:root{
+  --brand:#0a7c5a; --brand-2:#0f9e73; --ink:#0f172a; --dim:#5b6472;
+  --line:#e6e9ef; --bg:#ffffff; --bg-2:#f7f9fb; --warn:#b45309;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  color:var(--ink); background:var(--bg); line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{padding:56px 0 40px;border-bottom:1px solid var(--line);background:var(--bg-2)}
+.badge{display:inline-block;background:#e6f6ef;color:var(--brand);font-size:13px;font-weight:600;
+  padding:4px 12px;border-radius:999px;margin-bottom:16px}
+h1{font-size:clamp(28px,5vw,42px);line-height:1.25;letter-spacing:-.5px;margin-bottom:14px}
+.lead{font-size:clamp(16px,2.2vw,19px);color:var(--dim);max-width:640px}
+h2{font-size:clamp(21px,3vw,27px);margin:48px 0 16px;letter-spacing:-.3px}
+h3{font-size:16px;margin:0 0 8px}
+p{margin-bottom:14px}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:var(--bg-2);border:1px solid var(--line);border-radius:5px;padding:1.5px 6px;
+  font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre{background:#0f172a;color:#e2e8f0;padding:16px 18px;border-radius:10px;overflow-x:auto;font-size:13.5px;line-height:1.6}
+pre code{background:none;border:none;padding:0;color:inherit;font-size:inherit}
+.grid{display:grid;gap:16px;margin:20px 0}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{border:1px solid var(--line);border-radius:12px;padding:20px 22px;background:var(--bg)}
+.card.free{background:#f6fbf8;border-color:#c9e8da}
+.card h3{margin-bottom:6px}
+.card p{font-size:14.5px;color:var(--dim);margin-bottom:0}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 6px}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;border-radius:9px;
+  font-weight:600;font-size:15px;transition:transform .12s ease,box-shadow .12s ease}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 2px 8px rgba(10,124,90,.22)}
+.btn-primary:hover{background:var(--brand-2);text-decoration:none;transform:translateY(-1px)}
+.btn-ghost{border:1.5px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px}
+th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line)}
+th{background:var(--bg-2);font-weight:600;font-size:13.5px;color:var(--dim)}
+td.y{color:var(--brand);font-weight:600}
+td.n{color:#b0b7c3}
+ul{padding-left:20px;margin:10px 0 16px}
+li{margin-bottom:7px}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;position:relative;padding-left:38px;margin-bottom:13px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;
+  background:var(--brand);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.note{background:#fffbeb;border-left:3px solid #f59e0b;padding:13px 16px;border-radius:0 8px 8px 0;
+  font-size:14.5px;color:#78350f;margin:18px 0}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:7px 16px;font-size:14.5px;margin:14px 0}
+.kv dt{color:var(--dim)}
+.kv dd{margin:0}
+footer{margin-top:56px;padding:28px 0 44px;border-top:1px solid var(--line);color:var(--dim);font-size:13.5px}
+footer a{color:var(--dim);text-decoration:underline}
+.mono-sm{font-size:13px;color:var(--dim)}
+@media(max-width:600px){.kv{grid-template-columns:1fr}.kv dt{margin-top:8px}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap">
+  <span class="badge">开源免费 · 本地运行 · 视频不出本机</span>
+  <h1>口播视频排版质检，一次跑完</h1>
+  <p class="lead">
+    录完口播视频最烦的不是"剪"，是<strong>排版前的那堆检查</strong>：脸有没有越界、字幕断得合不合理、卡片会不会挡脸、音画对不对得上。
+    这些做成了一组本地脚本，跑完给你一份清单，<strong>永久免费</strong>。
+  </p>
+  <div class="cta">
+    <a class="btn btn-primary" href="https://github.com/qianqiuwanzi/th-recut-free#快速开始">⬇️ 免费本地体检（GitHub）</a>
+    <a class="btn btn-primary" href="https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting">🎬 直接出片（前 3 条免费）</a>
+    <a class="btn btn-ghost" href="#mcp">🔌 接 MCP 端点</a>
+  </div>
+  <p class="mono-sm">已上架 MCP 官方 Registry · Glama 连接器 Healthy · SkillHub 评分 4.6</p>
+</div>
+</header>
+
+<div class="wrap">
+
+<h2>它解决什么</h2>
+<div class="grid g2">
+  <div class="card">
+    <h3>🎯 人脸禁区探测</h3>
+    <p>先算出人脸所在的安全区，再反推哪些带状区域可以放卡片。放不下就如实报"需复核"，不硬塞。</p>
+  </div>
+  <div class="card">
+    <h3>✂️ 智能断句</h3>
+    <p>按词边界切分，不把词切断。输出可直接喂给剪辑工具的分段结果。</p>
+  </div>
+  <div class="card">
+    <h3>🔊 音频验收</h3>
+    <p>削波、增益、时序三项体检，音画不同步当场抓出来，而不是等成片才发现。</p>
+  </div>
+  <div class="card">
+    <h3>🖼️ 构图与 PIP</h3>
+    <p>卡片矩形是否遮挡人脸禁区、PIP 落位与覆盖、字幕轴向同步，一次验完。</p>
+  </div>
+</div>
+
+<h2>免费 vs 付费</h2>
+<table>
+  <thead><tr><th>能力</th><th>本地体检（开源，免费）</th><th>云端出片（Pay Skill）</th></tr></thead>
+  <tbody>
+    <tr><td>人脸禁区 / 断句 / 构图 / 音画</td><td class="y">✅ 查出来</td><td class="y">✅ 查出来并自动避让布点</td></tr>
+    <tr><td>产出"编辑剧本"</td><td class="y">✅ 预览</td><td class="y">✅ 预览 + 渲染成片</td></tr>
+    <tr><td>出片渲染</td><td class="n">❌ 需自备剪辑工具</td><td class="y">✅ 前 3 条免费，之后 ¥2.90/条</td></tr>
+    <tr><td>视频是否离开本机</td><td class="y">✅ 完全不出本机</td><td>☁️ 仅出片环节上云</td></tr>
+  </tbody>
+</table>
+
+<div class="card free" style="margin:22px 0 8px">
+  <h3>体检结果可以直接喂给云端出片</h3>
+  <p>
+    本地跑完的人脸禁区、分段、验收清单，正是云端排版所需的输入——不用重跑一遍。
+    两条入口同源：同一收款主体、同一计费口径、额度共享。
+  </p>
+</div>
+
+<div class="cta">
+  <a class="btn btn-primary" href="https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting">🎬 云端出片 · 前 3 条免费</a>
+  <a class="btn btn-ghost" href="https://github.com/qianqiuwanzi/th-recut-free#免费-vs-付费">对比看细节</a>
+</div>
+
+<h2 id="mcp">接 MCP 端点（给开发者 / 智能体）</h2>
+<p>
+  云端出片能力同时以标准 <strong>MCP（Model Context Protocol）</strong> 服务暴露，
+  任何支持自定义 MCP 的客户端（Claude Code / Cursor / Cline / Glama 等）都能直接调用。
+</p>
+<dl class="kv">
+  <dt>端点</dt><dd><code>https://www.qianshi.cool/thapi/mcp</code>（Streamable HTTP + JSON-RPC 2.0）</dd>
+  <dt>鉴权</dt><dd><code>Authorization: Bearer &lt;平台颁发的 API Key&gt;</code></dd>
+  <dt>工具</dt><dd><code>generate_recut_plan</code> → <code>render_recut_video</code> → <code>get_recut_job</code></dd>
+  <dt>计费</dt><dd>按次计费，前 3 条免费，与 SkillHub 付费链路同源</dd>
+</dl>
+
+<p>连接示例（<code>.mcp.json</code>）：</p>
+<pre><code>{
+  "mcpServers": {
+    "th-recut": {
+      "type": "http",
+      "url": "https://www.qianshi.cool/thapi/mcp",
+      "headers": { "Authorization": "Bearer ${TH_RECUT_API_KEY}" }
+    }
+  }
+}</code></pre>
+
+<p>
+  已被收录于
+  <a href="https://registry.modelcontextprotocol.io/v0/servers?search=th-recut">MCP 官方 Registry</a>
+  （<code>cool.qianshi/th-recut-mcp</code> v1.0.0，status <code>active</code>）与
+  <a href="https://glama.ai/mcp/connectors/cool.qianshi/th-recut-mcp">Glama 连接器</a>（rated B，endpoint responding）。
+</p>
+
+<h2>本地跑起来</h2>
+<ol class="steps">
+  <li><strong>装依赖</strong>：Python 3.8+ 与 <a href="https://ffmpeg.org/">ffmpeg</a>（需在 PATH 中）。numpy / opencv / jieba 为可选依赖，缺了仅相关脚本不可用。</li>
+  <li><strong>体检</strong>：<code>python scripts/doctor.py --video your.mp4</code>，一次性汇总构图 + 音频。</li>
+  <li><strong>按需单项</strong>：<code>detect_faces.py</code> / <code>split_sentences.py</code> / <code>check_card_layout.py</code> / <code>check_pip.py</code> 等，每个都支持 <code>--help</code>。</li>
+</ol>
+
+<div class="note">
+  <strong>关于合规：</strong>本仓库以 CC BY-NC 4.0 发布，<strong>禁止商用</strong>。
+  商用请走云端出片付费链路，或联系作者（105920869@qq.com · 千视科技（深圳）有限公司）。
+</div>
+
+</div>
+
+<footer>
+<div class="wrap">
+  <p>
+    <strong>th-recut-free</strong> · 口播视频本地体检 · MIT/CC BY-NC 4.0（禁止商用）<br>
+    源码 <a href="https://github.com/qianqiuwanzi/th-recut-free">github.com/qianqiuwanzi/th-recut-free</a> ·
+    云端出片 <a href="https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting">SkillHub</a> ·
+    联系方式 105920869@qq.com
+  </p>
+</div>
+</footer>
+
+</body>
+</html>
