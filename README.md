@@ -1,7 +1,16 @@
 # th-recut-free · 口播视频本地体检
 
+[![GitHub stars](https://img.shields.io/github/stars/qianqiuwanzi/th-recut-free?style=flat-square&label=stars)](https://github.com/qianqiuwanzi/th-recut-free)
+[![MCP Registry](https://img.shields.io/badge/MCP%20Registry-cool.qianshi%2Fth--recut--mcp-4F7DFC?style=flat-square&logo=modelcontextprotocol)](https://registry.modelcontextprotocol.io/v0/servers?search=th-recut)
+[![Glama](https://img.shields.io/badge/Glama-rated%20B%20%2F%20responding-4F7DFC?style=flat-square)](https://glama.ai/mcp/connectors/cool.qianshi/th-recut-mcp)
+[![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-e5484d?style=flat-square)](./LICENSE)
+[![线上体验页](https://img.shields.io/badge/%E7%BA%BF%E4%B8%8A%E4%BD%93%E9%AA%8C%E9%A1%B5-qianqiuwanzi.github.io-4F7DFC?style=flat-square)](https://qianqiuwanzi.github.io/th-recut-free/)
+
 > 你录完口播视频，最烦的是不是：脸跑到画面边缘、字幕断句怪、卡片挡脸、音画不同步？
 > 这个开源工具帮你在**本地**把这些坑一次性查出来——视频素材不出本机，永久免费。
+
+**👉 不想自己搭渲染环境？直接[云端出片](https://skillhub.cn/skills/org-teo57mtr/talking-video-autocutting)（前 3 条免费、不水印）** ｜
+**在线体验页** → <https://qianqiuwanzi.github.io/th-recut-free/>
 
 ## 它解决什么
 

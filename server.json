@@ -2,9 +2,9 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "schemaVersion": "1.0",
   "name": "cool.qianshi/th-recut-mcp",
-  "version": "1.0.0",
-  "description": "输入口播文案与素材，自动生成安全排版出片计划并云端渲染成片。",
-  "homepage": "https://www.qianshi.cool",
+  "version": "1.2.0",
+  "title": "口播视频自动剪辑 MCP",
+  "description": "输入口播文案与素材，自动生成安全排版出片计划并云端渲染成片。前 3 条免费。",
   "repository": {
     "url": "https://github.com/qianqiuwanzi/th-recut-free",
     "source": "github"
@@ -14,5 +14,6 @@
       "type": "streamable-http",
       "url": "https://www.qianshi.cool/thapi/mcp"
     }
-  ]
+  ],
+  "websiteUrl": "https://qianqiuwanzi.github.io/th-recut-free/"
 }
