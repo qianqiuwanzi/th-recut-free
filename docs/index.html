@@ -66,6 +66,11 @@ li{margin-bottom:7px}
 footer{margin-top:56px;padding:28px 0 44px;border-top:1px solid var(--line);color:var(--dim);font-size:13.5px}
 footer a{color:var(--dim);text-decoration:underline}
 .mono-sm{font-size:13px;color:var(--dim)}
+.price{font-size:22px;font-weight:700;color:var(--brand);margin:6px 0 8px}
+.price small{font-size:13px;font-weight:500;color:var(--dim)}
+.tier{border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:var(--bg-2)}
+.tier h3{margin-bottom:2px}
+.tier p{font-size:14px;color:var(--dim);margin:0}
 @media(max-width:600px){.kv{grid-template-columns:1fr}.kv dt{margin-top:8px}}
 </style>
 </head>
@@ -82,9 +87,10 @@ footer a{color:var(--dim);text-decoration:underline}
   <div class="cta">
     <a class="btn btn-primary" href="https://github.com/qianqiuwanzi/th-recut-free#快速开始">⬇️ 免费本地体检（GitHub）</a>
     <a class="btn btn-primary" href="https://www.qianshi.cool/skillpay/go?src=landing&to=skillhub">🎬 直接出片（前 3 条免费）</a>
+    <a class="btn btn-primary" href="https://www.qianshi.cool/skillpay/go?src=landing&to=wbplatform">📦 按月订阅（WorkBuddy）</a>
     <a class="btn btn-ghost" href="#mcp">🔌 接 MCP 端点</a>
   </div>
-  <p class="mono-sm">已上架 MCP 官方 Registry · Glama 连接器 Healthy · SkillHub 评分 4.6</p>
+  <p class="mono-sm">已上架 MCP 官方 Registry · Glama 连接器 Healthy · SkillHub 评分 4.6 · WorkBuddy 开放平台 3 档订阅</p>
 </div>
 </header>
 
@@ -118,6 +124,7 @@ footer a{color:var(--dim);text-decoration:underline}
     <tr><td>产出"编辑剧本"</td><td class="y">✅ 预览</td><td class="y">✅ 预览 + 渲染成片</td></tr>
     <tr><td>出片渲染</td><td class="n">❌ 需自备剪辑工具</td><td class="y">✅ 前 3 条免费，之后 ¥2.90/条</td></tr>
     <tr><td>视频是否离开本机</td><td class="y">✅ 完全不出本机</td><td>☁️ 仅出片环节上云</td></tr>
+    <tr><td>付费方式</td><td class="y">✅ 无需付费</td><td>按条 ¥2.90/条，或 <a href="#wb">WorkBuddy 按月订阅</a></td></tr>
   </tbody>
 </table>
 
@@ -131,7 +138,40 @@ footer a{color:var(--dim);text-decoration:underline}
 
 <div class="cta">
   <a class="btn btn-primary" href="https://www.qianshi.cool/skillpay/go?src=landing&to=skillhub">🎬 云端出片 · 前 3 条免费</a>
+  <a class="btn btn-primary" href="https://www.qianshi.cool/skillpay/go?src=landing&to=wbplatform">📦 按月订阅（WorkBuddy）</a>
   <a class="btn btn-ghost" href="https://github.com/qianqiuwanzi/th-recut-free#免费-vs-付费">对比看细节</a>
+</div>
+
+<h2 id="wb">在 WorkBuddy 里按月订阅</h2>
+<p>
+  如果出片是常态需求，除了按条付费，也可以在 <strong>WorkBuddy 开放平台</strong>订阅已上架的技能档位。
+  三档均为<strong>按月订阅</strong>，与本地体检、按条出片是同一套能力的不同使用方式。
+</p>
+<div class="grid g2">
+  <div class="tier">
+    <h3>体验版</h3>
+    <div class="price">¥19 <small>/ 月</small></div>
+    <p>低频试用，先按月跑通流程。</p>
+  </div>
+  <div class="tier">
+    <h3>专业版</h3>
+    <div class="price">¥99 <small>/ 月</small></div>
+    <p>稳定产出的常规档位。</p>
+  </div>
+  <div class="tier">
+    <h3>旗舰版</h3>
+    <div class="price">¥199 <small>/ 月</small></div>
+    <p>高频批量出片。</p>
+  </div>
+</div>
+<div class="note">
+  <strong>怎么找到：</strong>打开
+  <a href="https://www.qianshi.cool/skillpay/go?src=landing&to=wbplatform">open.workbuddy.cn</a>，
+  搜索「<strong>口播视频自动剪辑助手</strong>」即可看到已发布档位。平台资产需登录后可见，
+  档位名称、权益与价格<strong>以平台页面显示为准</strong>；本页不代替平台说明。
+</div>
+<div class="cta">
+  <a class="btn btn-ghost" href="https://www.qianshi.cool/skillpay/go?src=landing&to=wbplatform">前往 WorkBuddy 开放平台 →</a>
 </div>
 
 <h2 id="mcp">接 MCP 端点（给开发者 / 智能体）</h2>
@@ -184,6 +224,7 @@ footer a{color:var(--dim);text-decoration:underline}
     <strong>th-recut-free</strong> · 口播视频本地体检 · MIT/CC BY-NC 4.0（禁止商用）<br>
     源码 <a href="https://github.com/qianqiuwanzi/th-recut-free">github.com/qianqiuwanzi/th-recut-free</a> ·
     云端出片 <a href="https://www.qianshi.cool/skillpay/go?src=landing&to=skillhub">SkillHub</a> ·
+    按月订阅 <a href="https://www.qianshi.cool/skillpay/go?src=landing&to=wbplatform">WorkBuddy 开放平台</a> ·
     联系方式 105920869@qq.com
   </p>
 </div>
